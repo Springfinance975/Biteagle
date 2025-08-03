@@ -1,0 +1,97 @@
+{
+  "name": "codemarket",
+  "version": "1.0.0",
+  "description": "A comprehensive platform for solving complex coding challenges and trading digital materials",
+  "main": "index.html",
+  "scripts": {
+    "start": "live-server --port=3000 --open=/index.html",
+    "build": "npm run minify-css && npm run minify-js",
+    "minify-css": "cleancss -o dist/main.min.css styles/main.css",
+    "minify-js": "uglifyjs js/main.js -o dist/main.min.js",
+    "lint": "eslint js/*.js",
+    "format": "prettier --write js/*.js styles/*.css index.html",
+    "test": "jest",
+    "dev": "concurrently \"npm run start\" \"npm run watch\"",
+    "watch": "onchange 'styles/*.css' 'js/*.js' -- npm run build",
+    "deploy": "gh-pages -d .",
+    "validate": "html-validate index.html"
+  },
+  "keywords": [
+    "coding-challenges",
+    "algorithms",
+    "marketplace",
+    "programming",
+    "blockchain",
+    "machine-learning",
+    "data-structures",
+    "competitive-programming",
+    "digital-assets",
+    "developer-tools"
+  ],
+  "author": "CodeMarket Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/codemarket/homepage.git"
+  },
+  "bugs": {
+    "url": "https://github.com/codemarket/homepage/issues"
+  },
+  "homepage": "https://codemarket.dev",
+  "devDependencies": {
+    "@babel/core": "^7.22.0",
+    "@babel/preset-env": "^7.22.0",
+    "clean-css-cli": "^5.6.0",
+    "concurrently": "^8.2.0",
+    "eslint": "^8.42.0",
+    "gh-pages": "^5.0.0",
+    "html-validate": "^8.0.0",
+    "jest": "^29.5.0",
+    "live-server": "^1.2.2",
+    "onchange": "^7.1.0",
+    "prettier": "^2.8.8",
+    "uglify-js": "^3.17.0"
+  },
+  "dependencies": {
+    "chart.js": "^4.3.0",
+    "prismjs": "^1.29.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
+  "funding": {
+    "type": "opencollective",
+    "url": "https://opencollective.com/codemarket"
+  },
+  "babel": {
+    "presets": ["@babel/preset-env"]
+  },
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "es2021": true
+    },
+    "extends": ["eslint:recommended"],
+    "parserOptions": {
+      "ecmaVersion": 12,
+      "sourceType": "module"
+    },
+    "rules": {
+      "no-unused-vars": "warn",
+      "no-console": "warn"
+    }
+  },
+  "prettier": {
+    "semi": true,
+    "trailingComma": "es5",
+    "singleQuote": true,
+    "printWidth": 80,
+    "tabWidth": 2
+  }
+}
