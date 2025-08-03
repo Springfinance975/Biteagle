@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeMarket - Solve Challenges, Trade Digital Assets</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-code"></i>
+                <span>CodeMarket</span>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="#hero" class="nav-link">Home</a>
+                <a href="#challenges" class="nav-link">Challenges</a>
+                <a href="#marketplace" class="nav-link">Marketplace</a>
+                <a href="#leaderboard" class="nav-link">Leaderboard</a>
+                <a href="#about" class="nav-link">About</a>
+            </div>
+            <div class="nav-auth">
+                <button class="btn btn-secondary">Login</button>
+                <button class="btn btn-primary">Sign Up</button>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Solve <span class="highlight">Complex Code</span><br>
+                    Trade <span class="highlight">Digital Assets</span>
+                </h1>
+                <p class="hero-description">
+                    Master advanced programming challenges and monetize your skills. 
+                    Discover exclusive digital materials, algorithms, and resources from top developers worldwide.
+                </p>
+                <div class="hero-actions">
+                    <button class="btn btn-primary btn-large" onclick="scrollToSection('challenges')">
+                        <i class="fas fa-code"></i> Start Coding
+                    </button>
+                    <button class="btn btn-secondary btn-large" onclick="scrollToSection('marketplace')">
+                        <i class="fas fa-shopping-cart"></i> Browse Market
+                    </button>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-number">10K+</div>
+                        <div class="stat-label">Active Coders</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">Challenges</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">$2M+</div>
+                        <div class="stat-label">Earned</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="code-animation">
+                    <pre><code class="language-javascript" id="typing-code"></code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Complex Algorithms</h3>
+                    <p>Tackle advanced data structures, dynamic programming, and algorithmic challenges</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-coins"></i>
+                    </div>
+                    <h3>Earn Rewards</h3>
+                    <p>Get paid for solving challenges and creating valuable digital assets</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-store"></i>
+                    </div>
+                    <h3>Digital Marketplace</h3>
+                    <p>Buy and sell code templates, algorithms, and development resources</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>Global Competition</h3>
+                    <p>Compete with developers worldwide and climb the leaderboards</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Challenges Section -->
+    <section id="challenges" class="challenges">
+        <div class="container">
+            <div class="section-header">
+                <h2>Coding Challenges</h2>
+                <p>Test your skills with our advanced programming problems</p>
+            </div>
+            
+            <div class="challenge-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="algorithms">Algorithms</button>
+                <button class="filter-btn" data-filter="data-structures">Data Structures</button>
+                <button class="filter-btn" data-filter="machine-learning">Machine Learning</button>
+                <button class="filter-btn" data-filter="blockchain">Blockchain</button>
+            </div>
+
+            <div class="challenges-grid" id="challenges-grid">
+                <!-- Challenge cards will be populated by JavaScript -->
+            </div>
+
+            <!-- Live Code Challenge -->
+            <div class="live-challenge">
+                <h3>Try a Challenge Now</h3>
+                <div class="challenge-container">
+                    <div class="challenge-description">
+                        <h4 id="current-challenge-title">Binary Tree Maximum Path Sum</h4>
+                        <p id="current-challenge-desc">Given a non-empty binary tree, find the maximum path sum. The path may start and end at any node in the tree.</p>
+                        <div class="challenge-difficulty">
+                            <span class="difficulty-badge hard">Hard</span>
+                            <span class="reward">$250 Reward</span>
+                        </div>
+                    </div>
+                    <div class="code-editor">
+                        <div class="editor-header">
+                            <select id="language-select">
+                                <option value="javascript">JavaScript</option>
+                                <option value="python">Python</option>
+                                <option value="cpp">C++</option>
+                                <option value="java">Java</option>
+                            </select>
+                            <button class="btn btn-primary" onclick="runCode()">Run Code</button>
+                            <button class="btn btn-success" onclick="submitSolution()">Submit</button>
+                        </div>
+                        <textarea id="code-input" placeholder="// Write your solution here...
+function maxPathSum(root) {
+    // Your code here
+}"></textarea>
+                        <div class="output-section" id="output-section" style="display: none;">
+                            <h4>Output:</h4>
+                            <pre id="code-output"></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Marketplace Section -->
+    <section id="marketplace" class="marketplace">
+        <div class="container">
+            <div class="section-header">
+                <h2>Digital Materials Marketplace</h2>
+                <p>Discover and trade premium coding resources</p>
+            </div>
+
+            <div class="marketplace-filters">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search materials..." id="market-search">
+                </div>
+                <div class="filter-options">
+                    <select id="category-filter">
+                        <option value="all">All Categories</option>
+                        <option value="algorithms">Algorithms</option>
+                        <option value="templates">Code Templates</option>
+                        <option value="datasets">Datasets</option>
+                        <option value="tutorials">Tutorials</option>
+                        <option value="libraries">Libraries</option>
+                    </select>
+                    <select id="price-filter">
+                        <option value="all">All Prices</option>
+                        <option value="free">Free</option>
+                        <option value="0-50">$0 - $50</option>
+                        <option value="50-200">$50 - $200</option>
+                        <option value="200+">$200+</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="marketplace-grid" id="marketplace-grid">
+                <!-- Marketplace items will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Leaderboard Section -->
+    <section id="leaderboard" class="leaderboard">
+        <div class="container">
+            <div class="section-header">
+                <h2>Top Performers</h2>
+                <p>See who's leading the coding challenges</p>
+            </div>
+            
+            <div class="leaderboard-container">
+                <div class="leaderboard-filters">
+                    <button class="filter-btn active" data-period="week">This Week</button>
+                    <button class="filter-btn" data-period="month">This Month</button>
+                    <button class="filter-btn" data-period="all">All Time</button>
+                </div>
+                
+                <div class="leaderboard-table">
+                    <div class="table-header">
+                        <div class="rank">Rank</div>
+                        <div class="user">User</div>
+                        <div class="challenges">Challenges</div>
+                        <div class="earnings">Earnings</div>
+                        <div class="rating">Rating</div>
+                    </div>
+                    <div class="table-body" id="leaderboard-body">
+                        <!-- Leaderboard entries will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>About CodeMarket</h2>
+                    <p>CodeMarket revolutionizes how developers monetize their skills and access premium coding resources. Our platform combines challenging algorithmic problems with a thriving marketplace for digital development assets.</p>
+                    
+                    <div class="about-features">
+                        <div class="about-feature">
+                            <i class="fas fa-shield-alt"></i>
+                            <div>
+                                <h4>Secure Transactions</h4>
+                                <p>All transactions are secured with blockchain technology</p>
+                            </div>
+                        </div>
+                        <div class="about-feature">
+                            <i class="fas fa-users"></i>
+                            <div>
+                                <h4>Global Community</h4>
+                                <p>Connect with developers from around the world</p>
+                            </div>
+                        </div>
+                        <div class="about-feature">
+                            <i class="fas fa-rocket"></i>
+                            <div>
+                                <h4>Skill Growth</h4>
+                                <p>Continuous learning through complex challenges</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-visual">
+                    <div class="stats-chart">
+                        <canvas id="growthChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <i class="fas fa-code"></i>
+                        <span>CodeMarket</span>
+                    </div>
+                    <p>Empowering developers to monetize their skills and access premium coding resources.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-discord"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Platform</h4>
+                    <ul>
+                        <li><a href="#challenges">Challenges</a></li>
+                        <li><a href="#marketplace">Marketplace</a></li>
+                        <li><a href="#leaderboard">Leaderboard</a></li>
+                        <li><a href="#">API</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">Tutorials</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Community</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 CodeMarket. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
